@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="grid12.css">
+    <script src="jquery.js"></script>
+    <script>
+        $(function(){
+            let plusBtn = $('span[id]');
+            plusBtn.click(function(){ 
+                $(this).next().slideToggle();
+            }); 
+            $('#first').click(function(){$('#second , #third ,#forth').next().slideUp();$('#second , #third ,#forth').find("img").attr({src:'icon-plus.svg'})});
+            $('#second').click(function(){$('#first , #third ,#forth').next().slideUp();$('#first , #third ,#forth').find("img").attr({src:'icon-plus.svg'})});
+            $('#third').click(function(){$('#first , #second ,#forth').next().slideUp();$('#first , #second ,#forth').find("img").attr({src:'icon-plus.svg'})});
+            $('#forth').click(function(){$('#first , #second ,#third').next().slideUp();$('#first , #second ,#third').find("img").attr({src:'icon-plus.svg'})});
+
+            $('.plus-minus').click(function(){
+                if($(this).attr('src') == 'icon-plus.svg'){
+                    $(this).attr({src : 'icon-minus.svg'});
+                }else if($(this).attr('src') == 'icon-minus.svg'){
+                    $(this).attr({src : 'icon-plus.svg'});
+                }
+            });
+
+            console.log($('.plus-minus').attr('src'))
+        });
+    </script>
+</head>
+<body>
+    
+    <section id="panel">
+        <h1><span><img src="icon-star.svg" alt=""></span>FAQs</h1>
+
+        <div class="container">
+            <p class="question col-xs-10">What is Frontend Mentor, and how will it help me?</p><span id="first"><img class="plus-minus" src="icon-plus.svg" alt=""></span>
+            <p class="answer">Frontend Mentor offers realistic coding challenges to help developers improve their 
+                frontend coding skills with projects in HTML, CSS, and JavaScript. It's suitable for 
+                all levels and ideal for portfolio building.</p>
+        </div>
+
+        <div class="container">
+            <p class="question col-xs-10">Is Frontend Mentor free?</p><span id="second"><img class="plus-minus" src="icon-plus.svg" alt=""></span>
+            <p class="answer">Yes, Frontend Mentor offers both free and premium coding challenges, with the free 
+                option providing access to a range of projects suitable for all skill levels.</p>
+        </div>
+
+        <div class="container">
+            <p class="question col-xs-10">Can I use Frontend Mentor projects in my portfolio?</p><span id="third"><img class="plus-minus" src="icon-plus.svg" alt=""></span>
+            <p class="answer">Yes, you can use projects completed on Frontend Mentor in your portfolio. It's an excellent
+                way to showcase your skills to potential employers!</p>
+        </div>
+
+        <div class="container">
+            <p class="question col-xs-10">How can I get help if I'm stuck on a Frontend Mentor challenge?</p><span id="forth"><img class="plus-minus" src="icon-plus.svg" alt=""></span>
+            <p class="answer">The best place to get help is inside Frontend Mentor's Discord community. There's a help 
+                channel where you can ask questions and seek support from other community members.</p>
+        </div>
+
+        
+    </section>
+</body>
+</html>
